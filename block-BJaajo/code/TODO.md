@@ -6,6 +6,14 @@ Create the execution context diagram of the following code. Also write the outpu
 console.log('First');
 setTimeout(() => console.log('Second'), 0);
 console.log('Third');
+
+// output
+
+//first
+
+//third
+
+//second
 ```
 
 2.
@@ -18,6 +26,11 @@ function secondCall() {
 setTimeout(secondCall, 2000); // execute this code after 1000 ms
 setTimeout(() => console.log('Third'), 0); // execute this code after 1000 ms
 console.log('Third');
+
+//first
+//third
+//third
+//second
 ```
 
 3.
@@ -30,6 +43,11 @@ function secondCall() {
 setTimeout(secondCall, 1000); // execute this code after 1000 ms
 setTimeout(() => console.log('Third'), 0);
 console.log('Fourth');
+
+//first
+//fourth
+//third
+//second
 ```
 
 4.
@@ -42,6 +60,10 @@ function secondCall() {
 setTimeout(secondCall, 1000); // execute this code after 1000 ms
 setTimeout(() => console.log('Third'), 0);
 console.log('Fourth');
+//first
+//fourth
+//third
+//second
 ```
 
 5. What will be the output of the code below and why? Also write the timing of the output starting with 0 ms.
@@ -60,13 +82,19 @@ setTimeout(function exec() {
 }, 0);
 runWhileLoopForNSeconds(3);
 console.log('Third');
+
+// 0 ms first
+//3000ms third
+//3001ms second
+
+Javascript code will be executed first and it will remain in call stack untill it is executed completly. while timer function will remain in callback queue and it will pushed in stack later by event loop
 ```
 
 6. Convert the synchronous code given below into asynchronous. If you execute this code it will print one, two and three. Change the code in such a way that it should print `one`, `three` and `two`. You are not allowed to move the code up and down.
 
 ```js
 console.log('one');
-console.log('two');
+setTimeout(() => console.log('two'), 1000);
 console.log('three');
 ```
 
@@ -76,13 +104,20 @@ console.log('three');
 console.log('one');
 console.log('two');
 console.log('three');
+
+console.log('one');
+setTimeout(() => console.log('two'), 1000);
+console.log('three');
 ```
 
 8. Write a function named `asyncForEach` that is similar to `forEach`. But `asyncForEach` is asynchronous in nature rather than synchronous.
 
 ```js
-funciton asyncForEach(){
-  //
+function asyncForEach(arr,cb){
+
+  for(let i =0;i<arr.length;i++){
+   cb(arr[i]
+  },
 }
 //  Output of the function below should be
 // one
