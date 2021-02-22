@@ -1,0 +1,86 @@
+@import 'reset';
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+ul,
+li {
+  list-style: none;
+}
+body {
+  padding: 3rem 0;
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 1rem 0;
+  }
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+  }
+  .profile {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+input {
+  width: 30%;
+  padding: 0.5rem 0.75rem;
+  margin: 0 auto;
+  outline: none;
+}
+
+.user {
+  margin: 1rem auto;
+  text-align: center;
+  p {
+    margin: 1rem 0;
+  }
+  span {
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+
+  padding: 3rem 0;
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1rem 0;
+  }
+  ul {
+    margin: 0;
+  }
+  li {
+    margin-bottom: 1rem;
+  }
+}
+
+.follow,
+.users {
+  margin: 1rem 0;
+  padding: 1rem 0;
+  li {
+    margin-right: 1rem;
+  }
+}
+
+h5 {
+  font-size: 2rem;
+  color: #0c32db;
+  font-weight: 700;
+}
