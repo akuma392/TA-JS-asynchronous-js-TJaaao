@@ -5,47 +5,68 @@ let following = document.querySelector('.following');
 let followers = document.querySelector('.followers');
 let username = document.querySelector('span');
 
-let followersUser = document.querySelectorAll('.follow li');
+let root = document.querySelector('.follow');
 let followingUser = document.querySelectorAll('.users li');
 
 let pfp = document.querySelector('.profile');
+var li;
 
 // let randomNumber = Math.random()*15
 
-function displayFolowers(url) {
-  followersUser.innerHTML = '';
+function displayFolowers(url, dataFollower) {
+  root.innerHTML = '';
   let xhr1 = new XMLHttpRequest();
   xhr1.open('GET', `${url}`);
   xhr1.onload = function () {
     let userFollower = JSON.parse(xhr1.response);
 
-    followersUser.forEach((elm, i) => {
-      elm.innerHTML = ` <img
-    src=${userFollower[i].avatar_url}
-    alt=""
-  />
-  <p>${userFollower[i].login}</p>`;
-    });
-  };
-  xhr1.send();
-}
-function displayFollowing(url) {
-  console.log(url);
-  let xhr1 = new XMLHttpRequest();
-  xhr1.open('GET', `${url}`);
-  xhr1.onload = function () {
-    let userFollowing = JSON.parse(xhr1.response);
+    console.log(userFollower, dataFollower);
 
-    followingUser.forEach((elm, i) => {
-      elm.innerHTML = ` <img
-      src=${userFollowing[i].avatar_url}
-      alt=""
-    />
-    <p>${userFollowing[i].login}</p>`;
-    });
+    if (dataFollower > 5) {
+      for (let i = 0; i < 5; i++) {
+        li = document.createElement('li');
+
+        li.innerHTML = `<img
+        src=${userFollower[i].avatar_url}
+        alt=""
+      />
+      <p>${userFollower[i].login}</p>`;
+        root.append(li);
+      }
+    } else {
+      for (let i = 0; i < dataFollower; i++) {
+        li = document.createElement('li');
+
+        li.innerHTML = `<img
+        src=${userFollower[i].avatar_url}
+        alt=""
+      />
+      <p>${userFollower[i].login}</p>`;
+        root.append(li);
+      }
+    }
   };
   xhr1.send();
 }
+// function displayFollowing(url) {
+//   console.log(url);
+//   let xhr1 = new XMLHttpRequest();
+//   xhr1.open('GET', `${url}`);
+//   xhr1.onload = function () {
+//     let userFollowing = JSON.parse(xhr1.response);
+
+//     for (let i = 0; i < 5; i++) {
+//       root.forEach((elm, i) => {
+//         elm.innerHTML = ` <img
+//       src=${userFollowing[i].avatar_url}
+//       alt=""
+//     />
+//     <p>${userFollowing[i].login}</p>`;
+//       });
+//     }
+//   };
+//   xhr1.send();
+// }
 
 function displayUI(data) {
   pfp.src = data.avatar_url;
@@ -53,8 +74,8 @@ function displayUI(data) {
   username.innerText = data.login;
   followers.innerText = `followers: ${data.followers}`;
   following.innerText = `following: ${data.following}`;
-  displayFolowers(data.followers_url);
-  displayFollowing(data.following_url);
+  displayFolowers(data.followers_url, data.followers);
+  // displayFollowing(data.following_url);
 }
 function handleEvent(event) {
   if (event.keyCode == 13) {
