@@ -19,13 +19,21 @@ function wait() {
   });
 }
 
-let time = wait().then(() => console.log('Promise failed'));
+let time = wait().catch((error) => console.log(error));
 ```
 
 3. Create another promise. Now have it reject with a value of `Rejected Promise!` without using `setTimeout`. Print the contents of the promise after it has been rejected by passing console.log to `.catch` and also use `.finally` to log messgae `Promise Settled!`.
 
 ```js
-// Your code
+function wait() {
+  return new Promise((resol, reject) => {
+    reject('failed');
+  });
+}
+
+let time = wait()
+  .catch((error) => console.log(error))
+  .finally(() => console.log('promise settled'));
 ```
 
 4. What will be the output of the code below.
@@ -52,7 +60,13 @@ console.log('D');
 Set `secondPromise` to be a promise that resolves to "Second!". Set `firstPromise` to be a promise that resolves to `secondPromise`. Call the firstPromise with a `.then`, which will return the secondPromise promise. Then print the contents of the promise after it has been resolved by passing `console.log` to `.then
 
 ```js
-// Your code goes here
+var firstPromise, secondPromise;
+
+secondPromise = Promise.resolve('second');
+
+firstPromise = Promise.resolve(secondPromise);
+
+firstPromise.then((value) => console.log(value));
 ```
 
 6. Write a funtion named `wait` that accepts `time` in ms and executes the function after the given time.
