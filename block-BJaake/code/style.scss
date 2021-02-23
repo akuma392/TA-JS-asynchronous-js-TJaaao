@@ -1,0 +1,96 @@
+@import 'reset';
+
+body {
+  background: #c9ccd3;
+  background-image: linear-gradient(
+    -180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  background-blend-mode: lighten;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+.header {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  input {
+    padding: 0.5rem 0.75rem;
+    outline: none;
+    border: 1px solid rgba(gray, 0.5);
+    width: 40%;
+    margin-top: 1.5rem;
+  }
+}
+
+.user {
+  max-width: 800px;
+  margin: 1rem auto;
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem 0;
+  img {
+    width: 35%;
+    height: 35%;
+    border-radius: 50%;
+  }
+  h4 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 1rem 0;
+  }
+  p {
+    color: rgba(black, 0.7);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  li {
+    margin-bottom: 1rem;
+    color: rgba($color: #000000, $alpha: 0.8);
+  }
+  span {
+    color: rgb(15, 15, 58);
+    font-weight: 600;
+  }
+}
+h6 {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 600;
+  color: rgb(25, 46, 4);
+  margin-bottom: 1rem;
+}
+
+.root {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  li {
+    width: 100%;
+    img {
+      width: 100%;
+      border-radius: 50%;
+    }
+    p {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 1rem 0;
+    }
+    span {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
