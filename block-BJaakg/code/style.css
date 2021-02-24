@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-gap: 1rem;
+}
+.box {
+  border: 2px solid #d6bcfa;
+  height: 500px;
+  border-radius: 10px;
+}
+h1,
+h2 {
+  text-align: center;
+}
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+header img {
+  width: 30px;
+  margin-left: 1rem;
+}
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header {
+  background: linear-gradient(to right, #7ab3fa, #936cfa);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+#text {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+li {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: #7ab3fa;
+  flex: 0 1 32%;
+  margin-bottom: 30px;
+
+  padding: 15px;
+  box-shadow: 1px 1px 12px 1px black;
+}
+.card {
+  display: inline-block;
+  align-items: center;
+  text-align: start;
+}
+img {
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.box {
+  border: 2px solid #d6bcfa;
+  height: 250px;
+  border-radius: 10px;
+}
+h2 {
+  font-size: 20px;
+}
+button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* houses */
+.houses {
+  text-align: center;
+  margin: 2rem 0 1.5rem 0;
+}
+.houses span {
+  padding: 0.5rem 0.75rem;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+  background-color: #000;
+  color: white;
+  border-radius: 4px;
+}
+.active {
+  background-color: white;
+  color: #000;
+  border: 1px solid #000;
+}
+.houses span:hover {
+  background-color: white;
+  color: #000;
+  border: 1px solid #000;
+}
