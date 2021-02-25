@@ -1,47 +1,22 @@
-let root = document.querySelector('.root');
-let inp = document.querySelector('input');
-const imageArr = [];
+let input = document.querySelector('#text');
 
-// let imageData = fetch(
-//   `https://api.unsplash.com/photos/random?client_id=n2eibjmKdgZLAKVnShO7Nn6V_GuqEfE-syTt7tn3qUE`
-// ).then((res) => res.json());
+let root = document.querySelector('ul');
 
-function createUI(data) {
-  root.innerHTML = '';
-  data.forEach((elm) => {
-    let li = document.createElement('li');
-    let img = document.createElement('img');
-    img.src = elm.urls.small;
+let all = document.querySelector('.All');
+let active = document.querySelector('.Active');
+let completed = document.querySelector('.Completed');
+let clear = document.querySelector('.Clear');
 
-    li.append(img);
-
-    root.append(li);
-  });
-}
-
-// for (let i = 0; i < 100; i++) {
-//   imageArr.push(
-//     fetch(
-//       `https://api.unsplash.com/photos/random?client_id=LgC5Kv2qxx4MHE8b-DYKpsZ1VsgYSTBXZ8TY8cEEums`
-//     ).then((res) => res.json())
-//   );
-// }
-// let imageData = Promise.all(imageArr).then((value) => {
-//   console.log(value);
-//   createUI(value);
-// });
-function handleSearch(event) {
+function handleEvent(event) {
   if (event.keyCode == 13) {
-    let imageData = fetch(
-      `https://api.unsplash.com/search/photos?client_id=n2eibjmKdgZLAKVnShO7Nn6V_GuqEfE-syTt7tn3qUE&query=${event.target.value}`
-    )
-      .then((res) => res.json())
-      .then((value) => {
-        console.log(value.results);
-        createUI(value.results);
-      });
-    event.target.value = '';
   }
 }
+input.addEventListener('keyup', handleEvent);
 
-inp.addEventListener('keyup', handleSearch);
+// let todo = fetch(`https://ac-todo-api.herokuapp.com/api/todo`).then((res) =>
+//   res.json()
+// );
+
+let todo = fetch(
+  `https://cryptic-headland-94862.herokuapp.com/https://ac-todo-api.herokuapp.com/api/todo`
+).then((res) => res.json());
