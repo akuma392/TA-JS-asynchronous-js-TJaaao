@@ -113,11 +113,10 @@ console.log('three');
 8. Write a function named `asyncForEach` that is similar to `forEach`. But `asyncForEach` is asynchronous in nature rather than synchronous.
 
 ```js
-function asyncForEach(arr,cb){
-
-  for(let i =0;i<arr.length;i++){
-   cb(arr[i]
-  },
+function asyncForEach(arr, cb) {
+  for (let i = 0; i < arr.length; i++) {
+    setTimeout(() => cb(arr[i]), 1000);
+  }
 }
 //  Output of the function below should be
 // one
@@ -142,7 +141,9 @@ Convert the code below in such way that the output should be the one below
 <!-- 1, 2, 3, 4, 5 -->
 
 ```js
+
+
 console.log('First Call');
-[1, 2, 3, 4, 5].firEach((num) => console.log(num));
+[1, 2, 3, 4, 5].forEach((num) => setTimeout(()=>console.log(num), 1000););
 console.log('Last Call');
 ```
